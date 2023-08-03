@@ -1,7 +1,16 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using AgendadorCitasOnline.Data;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Agrega esto para configurar tu DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 33)))); // Cambia la versión a tu versión de MySQL
 
 var app = builder.Build();
 
@@ -25,4 +34,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-

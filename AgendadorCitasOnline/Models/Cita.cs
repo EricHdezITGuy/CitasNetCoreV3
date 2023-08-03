@@ -8,8 +8,14 @@ namespace AgendadorCitasOnline.Models
     {
         [Key]
         public int ID { get; set; }
+
+        [Required]
         public DateTime Fecha { get; set; }
+
+        [Required]
         public TimeSpan Hora { get; set; }
+
+        [Required]
         public string Estado { get; set; }
 
         [ForeignKey("Usuario")]
@@ -24,5 +30,4 @@ namespace AgendadorCitasOnline.Models
         public int IDServicio { get; set; }
         public virtual Servicio Servicio { get; set; }
     }
-
 }
