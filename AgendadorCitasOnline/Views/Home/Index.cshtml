@@ -1,9 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    // Establecer el título de la página
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <div class="jumbotron">
+        <!-- Encabezado principal -->
+        <h1 class="display-4">Bienvenido a Unleashed Tech Agency</h1>
+        <!-- Descripción breve -->
+        <p class="lead">Agende su cita con nuestros expertos en diversas áreas tecnológicas.</p>
+        <!-- Línea divisoria -->
+        <hr class="my-4">
+        <!-- Instrucciones adicionales -->
+        <p>Seleccione el servicio que necesita y encuentre el horario que más le convenga.</p>
+        <!-- Botón para ir a la página de creación de citas -->
+        <a class="btn btn-primary btn-lg" href="@Url.Action("Crear", "Citas")" role="button">Agendar Cita</a>
+        <!-- Botón para ir a la página de visualización de citas -->
+        <a class="btn btn-primary btn-lg" href="@Url.Action("Ver", "Citas")" role="button">Ver Cita</a>
+    </div>
 </div>
-

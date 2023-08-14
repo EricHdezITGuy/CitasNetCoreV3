@@ -44,3 +44,11 @@
 /Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/bin/Debug/net6.0/MySqlConnector.dll
 /Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.dll
 /Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/obj/Debug/net6.0/AgendadorCitasOnline.csproj.CopyComplete
+/Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/bin/Debug/net6.0/Humanizer.dll
+/Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/bin/Debug/net6.0/Microsoft.Extensions.DependencyModel.dll
+/Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/bin/Debug/net6.0/Mono.TextTemplating.dll
+/Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/bin/Debug/net6.0/System.CodeDom.dll
+/Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/bin/Debug/net6.0/System.Text.Encodings.Web.dll
+/Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/bin/Debug/net6.0/System.Text.Json.dll
+/Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/bin/Debug/net6.0/runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll

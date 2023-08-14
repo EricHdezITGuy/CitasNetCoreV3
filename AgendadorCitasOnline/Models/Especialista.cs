@@ -1,27 +1,26 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AgendadorCitasOnline.Models
 {
     public class Especialista
     {
-        [Key]
+        [Key] // Atributo que indica que esta propiedad es la clave principal
         public int ID { get; set; }
 
-        [Required]
-        [MaxLength(100)]
+        [Required] // Atributo que indica que esta propiedad es obligatoria
+        [MaxLength(100)] // Longitud máxima del campo Nombre
         public string Nombre { get; set; }
 
-        [Required]
-        [MaxLength(150)]
+        [Required] // Atributo que indica que esta propiedad es obligatoria
+        [MaxLength(150)] // Longitud máxima del campo Apellido
         public string Apellido { get; set; }
 
-        [Required]
-        [MaxLength(150)]
-        [EmailAddress]
+        [Required] // Atributo que indica que esta propiedad es obligatoria
+        [MaxLength(150)] // Longitud máxima del campo CorreoElectronico
+        [EmailAddress] // Atributo que valida que la propiedad sea una dirección de correo electrónico válida
         public string CorreoElectronico { get; set; }
 
+        // Colección de citas relacionadas con este especialista
         public virtual ICollection<Cita> Citas { get; set; }
     }
 }

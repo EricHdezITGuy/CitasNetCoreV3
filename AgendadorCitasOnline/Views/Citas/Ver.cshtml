@@ -1,0 +1,10 @@
+﻿<h1>Ver Cita</h1>
+
+<!-- Formulario para buscar una cita por ID -->
+<form asp-action="DetalleCita" method="post">
+    <!-- Campo para ingresar el ID de la cita -->
+    <label for="citaId">ID de la Cita:</label>
+    <input type="text" name="citaId" id="citaId" required />
+    <!-- Botón para enviar el formulario y buscar la cita -->
+    <button type="submit">Buscar Cita</button>
+</form>

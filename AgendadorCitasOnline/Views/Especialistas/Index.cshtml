@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AgendadorCitasOnline.Models.Especialista>
+
+<h1>Lista de Especialistas</h1>
+
+<table class="table">
+    <thead>
+        <!-- Encabezado de la tabla -->
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo Electrónico</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Iteración a través de cada especialista en el modelo -->
+        @foreach (var especialista in Model)
+        {
+            <tr>
+                <!-- Mostrar los detalles de cada especialista en una fila de la tabla -->
+                <td>@especialista.ID</td>
+                <td>@especialista.Nombre</td>
+                <td>@especialista.Apellido</td>
+                <td>@especialista.CorreoElectronico</td>
+            </tr>
+        }
+    </tbody>
+</table>

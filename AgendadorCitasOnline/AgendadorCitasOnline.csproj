@@ -8,13 +8,24 @@
 
   <ItemGroup>
     <None Remove="Data\" />
-    <None Remove="Views\Test\" />
+    <None Remove="Views\Usuarios\" />
+    <None Remove="Views\Especialistas\" />
+    <None Remove="Views\Servicios\" />
+    <None Remove="Views\Citas\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Views\Test\" />
+    <Folder Include="Views\Usuarios\" />
+    <Folder Include="Views\Especialistas\" />
+    <Folder Include="Views\Servicios\" />
+    <Folder Include="Views\Citas\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.9">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>

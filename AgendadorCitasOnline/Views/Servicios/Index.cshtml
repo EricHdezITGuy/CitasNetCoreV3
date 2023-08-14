@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AgendadorCitasOnline.Models.Servicio>
+
+<h1>Lista de Servicios</h1>
+
+<!-- Tabla para mostrar la lista de servicios -->
+<table class="table">
+    <thead>
+        <!-- Encabezados de la tabla -->
+        <tr>
+            <th>ID</th>
+            <th>Nombre del Servicio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Loop para iterar a través de los servicios en el modelo y renderizar una fila para cada uno -->
+        @foreach (var servicio in Model)
+        {
+            <tr>
+                <!-- Datos del servicio -->
+                <td>@servicio.ID</td>
+                <td>@servicio.NombreServicio</td>
+            </tr>
+        }
+    </tbody>
+</table>

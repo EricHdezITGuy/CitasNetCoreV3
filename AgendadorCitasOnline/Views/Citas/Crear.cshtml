@@ -1,0 +1,43 @@
+﻿@model AgendadorCitasOnline.Models.Cita
+
+<h1>Agendar Cita</h1>
+
+<!-- Formulario para agendar una cita -->
+<form asp-action="Crear" method="post">
+    <!-- Campo para la fecha y hora de inicio -->
+    <div class="form-group">
+        <label for="Inicio">Fecha y hora de inicio:</label>
+        <input type="datetime-local" id="Inicio" name="Inicio" class="form-control" required />
+    </div>
+
+    <!-- Campo para la cédula del usuario -->
+    <div class="form-group">
+        <label for="CedulaUsuario">Cédula del Usuario:</label>
+        <input type="number" id="CedulaUsuario" name="CedulaUsuario" class="form-control" required />
+    </div>
+
+    <!-- Lista desplegable para seleccionar el especialista -->
+    <div class="form-group">
+        <label for="Especialista">Especialista</label>
+        <select class="form-control" id="IDEspecialista" name="IDEspecialista">
+            @foreach (var especialista in ViewBag.Especialistas)
+            {
+                <option value="@especialista.Id">@especialista.NombreCompleto</option>
+            }
+        </select>
+    </div>
+
+    <!-- Lista desplegable para seleccionar el servicio -->
+    <div class="form-group">
+        <label for="Servicio">Servicio</label>
+        <select class="form-control" id="IDServicio" name="IDServicio">
+            @foreach (var servicio in ViewBag.Servicios)
+            {
+                <option value="@servicio.Id">@servicio.NombreServicio</option>
+            }
+        </select>
+    </div>
+
+    <!-- Botón para enviar el formulario -->
+    <button type="submit" class="btn btn-primary">Agendar</button>
+</form>

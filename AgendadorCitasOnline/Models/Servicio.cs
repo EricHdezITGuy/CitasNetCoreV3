@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AgendadorCitasOnline.Models
 {
     public class Servicio
     {
-        [Key]
+        [Key] // Atributo que indica que esta propiedad es la clave principal
         public int ID { get; set; }
 
-        [Required]
-        [MaxLength(150)]
+        [Required] // Atributo que indica que esta propiedad es obligatoria
+        [MaxLength(150)] // Longitud máxima del campo NombreServicio
         public string NombreServicio { get; set; }
 
+        // Colección de citas relacionadas con este servicio
         public virtual ICollection<Cita> Citas { get; set; }
     }
 }

@@ -6,28 +6,34 @@ namespace AgendadorCitasOnline.Models
 {
     public class Cita
     {
-        [Key]
+        // ID único para la cita
         public int ID { get; set; }
 
-        [Required]
-        public DateTime Fecha { get; set; }
+        // Fecha y hora de inicio de la cita
+        public DateTime Inicio { get; set; }
 
-        [Required]
-        public TimeSpan Hora { get; set; }
+        // Fecha y hora de finalización de la cita
+        public DateTime Fin { get; set; }
 
-        [Required]
+        // Estado de la cita (puede ser utilizado para manejar si la cita está confirmada, cancelada, etc.)
         public string Estado { get; set; }
 
-        [ForeignKey("Usuario")]
+        // Cédula del usuario asociada a la cita
         public long CedulaUsuario { get; set; }
-        public virtual Usuario Usuario { get; set; }
 
-        [ForeignKey("Especialista")]
+        // Propiedad de navegación para acceder al usuario asociado a la cita
+        public Usuario Usuario { get; set; }
+
+        // ID del especialista asociado a la cita
         public int IDEspecialista { get; set; }
-        public virtual Especialista Especialista { get; set; }
 
-        [ForeignKey("Servicio")]
+        // Propiedad de navegación para acceder al especialista asociado a la cita
+        public Especialista Especialista { get; set; }
+
+        // ID del servicio asociado a la cita
         public int IDServicio { get; set; }
-        public virtual Servicio Servicio { get; set; }
+
+        // Propiedad de navegación para acceder al servicio asociado a la cita
+        public Servicio Servicio { get; set; }
     }
 }

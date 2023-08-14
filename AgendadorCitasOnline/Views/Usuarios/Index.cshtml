@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AgendadorCitasOnline.Models.Usuario>
+
+<h1>Lista de Usuarios</h1>
+
+<!-- Tabla para mostrar la lista de usuarios -->
+<table class="table">
+    <thead>
+        <!-- Encabezados de la tabla -->
+        <tr>
+            <th>Cédula</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo Electrónico</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Loop para iterar a través de los usuarios en el modelo y renderizar una fila para cada uno -->
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <!-- Datos del usuario -->
+                <td>@usuario.Cedula</td>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Apellido</td>
+                <td>@usuario.CorreoElectronico</td>
+            </tr>
+        }
+    </tbody>
+</table>

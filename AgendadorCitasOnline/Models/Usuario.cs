@@ -6,22 +6,23 @@ namespace AgendadorCitasOnline.Models
 {
     public class Usuario
     {
-        [Key]
+        [Key] // Atributo que indica que esta propiedad es la clave principal
         public long Cedula { get; set; }
 
-        [Required]
-        [MaxLength(100)]
+        [Required] // Atributo que indica que esta propiedad es obligatoria
+        [MaxLength(100)] // Longitud máxima del campo Nombre
         public string Nombre { get; set; }
 
-        [Required]
-        [MaxLength(150)]
+        [Required] // Atributo que indica que esta propiedad es obligatoria
+        [MaxLength(150)] // Longitud máxima del campo Apellido
         public string Apellido { get; set; }
 
-        [Required]
-        [MaxLength(150)]
-        [EmailAddress]
+        [Required] // Atributo que indica que esta propiedad es obligatoria
+        [MaxLength(150)] // Longitud máxima del campo CorreoElectronico
+        [EmailAddress] // Atributo que valida si el valor es una dirección de correo electrónico válida
         public string CorreoElectronico { get; set; }
 
+        // Colección de citas relacionadas con este usuario
         public virtual ICollection<Cita> Citas { get; set; }
     }
 }
