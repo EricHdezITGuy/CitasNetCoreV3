@@ -20,7 +20,7 @@ namespace AgendadorCitasOnline.Models
         [EmailAddress] // Atributo que valida que la propiedad sea una dirección de correo electrónico válida
         public string CorreoElectronico { get; set; }
 
-        // Colección de citas relacionadas con este especialista
+        // Colección de citas relacionadas con este especialista, sin esto no hay relacion entre los modelos
         public virtual ICollection<Cita> Citas { get; set; }
     }
 }

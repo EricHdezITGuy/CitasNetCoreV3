@@ -1,16 +1,26 @@
 ﻿using AgendadorCitasOnline.Data;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.Extensions.DependencyInjection;  // Asegúrate de agregar este using para el AddScoped
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add<CustomExceptionFilterAttribute>(); // Agrega el filtro global
+});
 
-// Agrega esto para configurar tu DbContext
+// Agregar esto para configurar el DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 33)))); // Cambia la versión a tu versión de MySQL
+
+// Registra el filtro como un servicio
+builder.Services.AddScoped<CustomExceptionFilterAttribute>();
+
+// Registra las consultas generadas por EF Core en la consola
+builder.Logging.AddConsole();
 
 var app = builder.Build();
 

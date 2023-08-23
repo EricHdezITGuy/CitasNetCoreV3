@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/Views/Citas/Cita.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0YXMvQ2l0YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/insertfx/Documents/Dev Projects/C_Sharp_Projects/CitasWebUnleashed/AgendadorCitasOnline/AgendadorCitasOnline/Views/Citas/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2l0YXMvQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

@@ -12,6 +12,7 @@
     <None Remove="Views\Especialistas\" />
     <None Remove="Views\Servicios\" />
     <None Remove="Views\Citas\" />
+    <None Remove="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -19,6 +20,7 @@
     <Folder Include="Views\Especialistas\" />
     <Folder Include="Views\Servicios\" />
     <Folder Include="Views\Citas\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />

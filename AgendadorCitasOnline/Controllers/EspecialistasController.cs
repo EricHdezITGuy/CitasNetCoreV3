@@ -1,5 +1,4 @@
-﻿// Importando las bibliotecas necesarias
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AgendadorCitasOnline.Models;
 using AgendadorCitasOnline.Data;

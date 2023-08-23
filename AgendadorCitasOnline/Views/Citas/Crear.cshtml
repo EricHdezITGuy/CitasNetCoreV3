@@ -2,18 +2,80 @@
 
 <h1>Agendar Cita</h1>
 
+<!-- Bloque para mostrar el mensaje de éxito -->
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success mt-4">
+        @ViewBag.SuccessMessage
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger mt-4">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<!-- Mostrar errores de validación -->
+@{
+    if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            Por favor corrija los errores y vuelva a intentarlo.
+        </div>
+    }
+}
+
+<!-- Bloque para mostrar los detalles de la cita cuando sea exitoso -->
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="mt-4">
+        <h2>Detalles de la cita</h2>
+        <p><strong>Fecha y hora de inicio:</strong> @Model.Inicio</p>
+        <p><strong>Cédula del Usuario:</strong> @Model.CedulaUsuario</p>
+
+        @{
+            var especialistas = ViewBag.Especialistas as IEnumerable<dynamic>;
+            var servicios = ViewBag.Servicios as IEnumerable<dynamic>;
+
+            var nombreEspecialista = especialistas?.FirstOrDefault(e => e.Id == Model.IDEspecialista)?.NombreCompleto;
+            var nombreServicio = servicios?.FirstOrDefault(s => s.Id == Model.IDServicio)?.NombreServicio;
+        }
+
+        <p><strong>Especialista:</strong> @nombreEspecialista</p>
+        <p><strong>Servicio:</strong> @nombreServicio</p>
+    </div>
+}
+
 <!-- Formulario para agendar una cita -->
 <form asp-action="Crear" method="post">
-    <!-- Campo para la fecha y hora de inicio -->
+    <!-- Campo para el nombre del usuario -->
     <div class="form-group">
-        <label for="Inicio">Fecha y hora de inicio:</label>
-        <input type="datetime-local" id="Inicio" name="Inicio" class="form-control" required />
+        <label for="NombreUsuario">Nombre:</label>
+        <input type="text" id="NombreUsuario" name="NombreUsuario" class="form-control" required />
+        <span class="text-danger">@Html.ValidationMessage("NombreUsuario")</span>
+    </div>
+
+    <!-- Campo para el apellido del usuario -->
+    <div class="form-group">
+        <label for="ApellidoUsuario">Apellido:</label>
+        <input type="text" id="ApellidoUsuario" name="ApellidoUsuario" class="form-control" required />
+        <span class="text-danger">@Html.ValidationMessage("ApellidoUsuario")</span>
+    </div>
+
+    <!-- Campo para el correo electrónico del usuario -->
+    <div class="form-group">
+        <label for="CorreoElectronico">Correo Electrónico:</label>
+        <input type="email" id="CorreoElectronico" name="CorreoElectronico" class="form-control" required />
+        <span class="text-danger">@Html.ValidationMessage("CorreoElectronico")</span>
     </div>
 
     <!-- Campo para la cédula del usuario -->
     <div class="form-group">
         <label for="CedulaUsuario">Cédula del Usuario:</label>
         <input type="number" id="CedulaUsuario" name="CedulaUsuario" class="form-control" required />
+        <span class="text-danger">@Html.ValidationMessage("CedulaUsuario")</span>
     </div>
 
     <!-- Lista desplegable para seleccionar el especialista -->
@@ -25,6 +87,7 @@
                 <option value="@especialista.Id">@especialista.NombreCompleto</option>
             }
         </select>
+        <span class="text-danger">@Html.ValidationMessage("IDEspecialista")</span>
     </div>
 
     <!-- Lista desplegable para seleccionar el servicio -->
@@ -36,8 +99,51 @@
                 <option value="@servicio.Id">@servicio.NombreServicio</option>
             }
         </select>
+        <span class="text-danger">@Html.ValidationMessage("IDServicio")</span>
     </div>
 
+    <!-- Campo para la fecha de inicio de la cita -->
+    <div class="form-group">
+        <label for="FechaInicio">Fecha:</label>
+        <input type="date" id="FechaInicio" name="FechaInicio" class="form-control" min="@DateTime.Now.AddDays(7).ToString("yyyy-MM-dd")" max="@DateTime.Now.AddDays(30).ToString("yyyy-MM-dd")" required />
+        <span class="text-danger">@Html.ValidationMessage("FechaInicio")</span>
+    </div>
+
+    <!-- Campo para la hora de inicio de la cita -->
+    <div class="form-group">
+        <label for="HoraInicio">Hora:</label>
+        <select id="HoraInicio" name="HoraInicio" class="form-control">
+            <option value="07:00">07:00 AM</option>
+            <option value="07:30">07:30 AM</option>
+            <option value="08:00">08:00 AM</option>
+            <option value="08:30">08:30 AM</option>
+            <option value="09:00">09:00 AM</option>
+            <option value="09:30">09:30 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="10:30">10:30 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="11:30">11:30 AM</option>
+            <option value="12:00">12:00 AM</option>
+            <option value="12:30">12:30 AM</option>
+            <option value="13:00">01:00 PM</option>
+            <option value="13:30">01:30 PM</option>
+            <option value="14:00">02:00 PM</option>
+            <option value="14:30">02:30 PM</option>
+            <option value="15:00">03:00 PM</option>
+            <option value="15:30">03:30 PM</option>
+        </select>
+        <span class="text-danger">@Html.ValidationMessage("HoraInicio")</span>
+    </div>
+
+    <script>document.getElementById('FechaInicio').addEventListener('change', function () {
+            var selectedDate = new Date(this.value);
+    if (selectedDate.getDay() === 5 || selectedDate.getDay() === 6) { // Ajusta para bloquear sábado(5) y domingo(6) 
+                alert('Por favor, selecciona un día entre Lunes y Viernes.');
+                this.value = '';
+                return;
+            }
+        });</script>
+
     <!-- Botón para enviar el formulario -->
-    <button type="submit" class="btn btn-primary">Agendar</button>
+    <button type="submit" class="btn btn-primary mt-4">Agendar</button>
 </form>

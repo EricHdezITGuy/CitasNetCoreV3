@@ -6,8 +6,14 @@ namespace AgendadorCitasOnline.Models
 {
     public class Usuario
     {
+        // Constructor para inicializar la colección de citas
+        public Usuario()
+        {
+            Citas = new HashSet<Cita>();
+        }
+
         [Key] // Atributo que indica que esta propiedad es la clave principal
-        public long Cedula { get; set; }
+        public int Cedula { get; set; }
 
         [Required] // Atributo que indica que esta propiedad es obligatoria
         [MaxLength(100)] // Longitud máxima del campo Nombre
